@@ -1,0 +1,421 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> Book Recommndation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+
+    <link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css" />
+
+    <!-- Slick -->
+
+    <link type="text/css" rel="stylesheet" href="../static/css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="../static/css/slick-theme.css" />
+
+    <!-- nouislider -->
+
+    <link type="text/css" rel="stylesheet" href="../static/css/nouislider.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css" />
+
+
+    <!-- style-detail -->
+    <link type="text/css" rel="stylesheet" href="../static/css/style-detail.css" />
+
+    <link type="text/css" rel="stylesheet" href="../static/css/style-cart.css" />
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <script></script>
+
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="#"><i class="fa fa-phone"></i>0988888888</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> dangphong1520@gmail.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> 175 Tay Son</a></li>
+                </ul>
+                <ul class="header-links pull-right">
+                    <li class="active"><a href="./index-base.html">Home</a></li>
+                    <li>
+                        <font color="red" ;>Welcome, <span id="get--username"></span></font>
+                    </li>
+                    <li><a id="logout" href="#">logout</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a id="go--home" href="index-base.html" class="logo">
+                                <img style="border-radius: 50%; margin-top: 15%" src="../static/img/logob.png"
+                                    alt="error">
+
+                            </a>
+
+                        </div>
+                        <br />
+                        <span>
+                            <h3 style="color: #FFFFFF">YourReads</h3>
+                        </span>
+                    </div>
+
+
+                    <!-- /LOGO -->
+
+                    <!-- SEARCH BAR -->
+                    <div class="col-md-6">
+                        <div class="header-search">
+                            <form>
+								<!-- {% csrf_token %} -->
+								<div name="stype" class="input-select">
+									Book Title
+								</div>
+								<input type="text" id="search--book" class="input" placeholder="Search here"
+									name="searchbox">
+								<a name="sbutton" href="#" id="myBtn" class="search-btn">Search</a>
+							</form>
+                        </div>
+                    </div>
+                    <!-- /SEARCH BAR -->
+
+                    <!-- ACCOUNT -->
+                    <div class="col-md-3 clearfix">
+                        <div class="header-ctn">
+                            <!-- Wishlist -->
+                            <div>
+                                <a href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Giỏ hàng</span>
+                                    <div id="cart--count" class="qty"></div>
+                                </a>
+                            </div>
+                            <!-- /Wishlist -->
+
+                            <!-- /Menu Toogle -->
+                        </div>
+                    </div>
+                    <!-- /ACCOUNT -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
+
+    <!-- NAVIGATION -->
+    <!-- /NAVIGATION -->
+
+    <!-- SECTION -->
+    </div>
+    <!-- /SECTION -->
+
+    <div class="section" id="style--cart">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h3 class="title">Sản phẩm</h3>
+
+                    </div>
+                </div>
+                <!-- /section title -->
+
+                <!-- Products tab & slick -->
+                <div class="col-md-12" id="product--cart">
+                    <div class="cart__title">
+                        <div class="cart__name">San pham</div>
+                        <div class="cart__price">gia</div>
+                        <div class="cart__quantity">so luong</div>
+                        <div class="cart__remove">xoa</div>
+                    </div>
+                    <div class="cart__list">
+                        <div class="cart__list-product">
+                            <div class="cart__list-img">
+                                <img src="../static/img/book-test.png" alt="">
+                            </div>
+                            <div class="cart__list-name">asdfsd</div>
+                            <div class="cart__list-price">gia</div>
+                            <div class="cart__list-quantity">
+                                <div>
+                                    <!-- <span id="reduce"><i class="fas fa-minus"></i></span> -->
+                                    <input value=1 id="current__quantity" type="text">
+                                    <!-- <span id="increase"><i class="fas fa-plus"></i></span> -->
+                                </div>
+                            </div>
+                            <div class="cart__list-remove">xoa</div>
+                        </div>
+                    </div>
+                    <div class="fee">
+                        <label>Chọn thương phức thanh toán:
+                            <select class="ice-cream" name="ice-cream">
+                                <option value="1">Qua ngân hàng BIDV</option>
+                                <option value="2">Chuyển khoản momo</option>
+                                <option value="3">Qua Agribank</option>
+                                <option value="4">Trả góp</option>
+                            </select>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- SECTION -->
+
+    <!-- SECTION -->
+    <!-- /SECTION -->
+    <script>
+        function myfun() {
+            $(document).ready(function () {
+                $("#heart").click(function () {
+                    if ($("#heart").hasClass("liked")) {
+                        $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+                        $("#heart").removeClass("liked");
+                    } else {
+                        $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+                        $("#heart").addClass("liked");
+                    }
+                });
+            });
+        }
+    </script>
+
+    <!-- {% endblock %} -->
+    <footer id="footer">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+
+                    <div class="footer">
+                        <h3 class="footer-title">About Us</h3>
+                        <p>This site is for book Recommendation. On the basis of user's history it recommends the book.
+                            Users can also search and rate the book. We made this site as our college term project. It
+                            will be upgraded in future. </p>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fa fa-map-marker"></i>175 Tay Son</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i>0988888888</a></li>
+                            <li><a href="#"><i class="fa fa-envelope-o"></i>dangphong1520@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /container -->
+            </div>
+            <!-- /top footer -->
+
+            <!-- bottom footer -->
+            <div id="bottom-footer" class="section">
+                <div class="container">
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-md-12 bottom__item text-center">
+
+                            <span class="copyright">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved |
+
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </span>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /container -->
+            </div>
+            <!-- /bottom footer -->
+    </footer>
+    <!-- /FOOTER -->
+
+    <!-- jQuery Plugins -->
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/slick.min.js"></script>
+    <script src="../static/js/nouislider.min.js"></script>
+    <script src="../static/js/jquery.zoom.min.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script>
+
+
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);
+        const username = urlParams.get('username');
+        const userid = urlParams.get('userid');
+        var idBook = urlParams.get('id_book');
+        console.log(username);
+        document.getElementById("get--username").innerHTML = username;
+
+        // logout
+        var logout = document.getElementById('logout');
+        logout.addEventListener('click', function () {
+            if (confirm('Are you sure you want to log out?')) {
+
+                window.localStorage.clear();
+                window.location.reload(true);
+                window.location.replace('./login-base.html');
+            }
+        })
+        // get cart
+        function getCart() {
+            return new Promise((resolve, reject) => {
+                fetch(`http://192.168.1.83:8000/api/v1/order/?id_user=${userid}`)
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(data => {
+
+                        resolve(data);
+                    })
+                    .catch(err => {
+                        reject(err);
+                    });
+            });
+        }
+        getCart().then(cate => {
+
+            const queryString = window.location.search;
+            console.log(queryString);
+            const urlParams = new URLSearchParams(queryString);
+            const username = urlParams.get('username');
+            const userid = urlParams.get('userid');
+            console.log(username);
+            document.getElementById("get--username").innerHTML = username;
+
+            var categories = cate.data
+            console.log('cc');
+            console.log(categories);
+
+            document.getElementById('cart--count').innerHTML = categories.length;
+
+        }).catch(err => {
+            console.log(err);
+        });
+        //search book
+		document.getElementById("myBtn").addEventListener("click", function (e) {
+			e.preventDefault();
+			var a = document.getElementById("search--book").value;
+			window.location.href = `./search-base.html?search=${a}&userid=${userid}&username=${username}`;
+		});
+        //quantity
+        // var quantity = 1;
+        // var inc = document.getElementById('increase');
+        // var red = document.getElementById('reduce');
+        // inc.addEventListener('click', () => {
+        //     quantity++;
+        //     document.getElementById('current__quantity').value = quantity
+        // })
+        // red.addEventListener('click', () => {
+        //     if (quantity <= 1) {
+        //         console.log('ko am');
+        //     } else {
+        //         quantity--;
+        //         document.getElementById('current__quantity').value = quantity
+        //     }
+
+        // })
+        // go home
+		document.getElementById('go--home').addEventListener('click', function (e) {
+			e.preventDefault();
+			window.location.href = `./index-base.html?userid=${userid}&username=${username}`;
+		})
+
+        // get detail
+        function getDetail() {
+            return new Promise((resolve, reject) => {
+                fetch(`http://192.168.1.83:8000/api/v1/details/?id_book=${idBook}`)
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(data => {
+
+                        resolve(data);
+                    })
+                    .catch(err => {
+                        reject(err);
+                    });
+            });
+        }
+        getDetail().then(data => {
+
+            // const queryString = window.location.search;
+            // console.log(queryString);
+            // const urlParams = new URLSearchParams(queryString);
+            // const username = urlParams.get('username');
+            // const userid = urlParams.get('userid');
+            // console.log(username);
+            console.log('a');
+            var books = data.data;
+            console.log(books[0].image_url);
+
+            var html = `
+                    <div class="cart__list-product">
+                        <div class="cart__list-img">
+                            <img src="${books[0].image_url}" alt="">
+                        </div>
+                        <div class="cart__list-name">asdfsd</div>
+                        <div class="cart__list-price">gia</div>
+                        <div class="cart__list-quantity">
+                            <div>
+                                <input value=1 id="current__quantity" type="text">
+                            </div>
+                        </div>
+                        <div class="cart__list-remove">xoa</div>
+                    </div>
+                
+                `
+
+
+
+
+            document.getElementsByClassName('cart__list')[0].innerHTML = html
+
+        }).catch(err => {
+            console.log(err);
+        });
+    </script>
+</body>
+
+</html>

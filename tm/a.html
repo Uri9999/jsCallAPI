@@ -1,0 +1,464 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title> Book Recommndation</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<!-- <link type="text/css" rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}"/> -->
+        <link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css"/>
+
+		<!-- Slick -->
+		<!-- <link type="text/css" rel="stylesheet" href="{% static '/css/slick.css' %}"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/slick-theme.css' %}"/> -->
+        <link type="text/css" rel="stylesheet" href="../static/css/slick.css"/>
+		<link type="text/css" rel="stylesheet" href="../static/css/slick-theme.css"/>
+
+		<!-- nouislider -->
+		<!-- <link type="text/css" rel="stylesheet" href="{% static 'css/nouislider.min.css' %}"/> -->
+        <link type="text/css" rel="stylesheet" href="../static/css/nouislider.min.css"/>
+
+		<!-- Font Awesome Icon -->
+		<!-- <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"> -->
+        <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+
+		<!-- Custom stlylesheet -->
+        <!-- <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/> -->
+        <link type="text/css" rel="stylesheet" href="../static/css/style.css"/>
+
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"/> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"/>
+        <!-- {% block login %}
+        {% endblock %} -->
+	
+    </head>
+	<body>
+		<!-- HEADER -->
+		<header>
+            <script></script>
+
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i>0988888888</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> dangphong1520@gmail.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> 175 Tay Son</a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						<li class="active"><a href="{% url 'index' %}">Home</a></li>
+						<!-- <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li> -->
+						<!-- {% block navbar%} -->
+                        <li><font color="red";>Welcome, User<!--{{request.session.loginuser}}--></font></li>
+						<li><a href="{% url 'logout'%}">logout</a></li>
+                        <!-- {% endblock%} -->
+
+                        
+					</ul>
+				</div>
+			</div>
+
+            <!-- {% block blk %} -->
+            <div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="store.html" class="logo">
+									<img  style="border-radius: 50%; margin-top: 15%"  src="../static/img/logob.png" alt="error">
+									
+								</a>
+
+							</div>
+							<br/>
+							<span><h3 style="color: #FFFFFF">YourReads</h3></span>
+						</div>
+
+
+						<!-- /LOGO -->
+
+						<!-- SEARCH BAR -->
+						<div class="col-md-6">
+							<div class="header-search">
+								<form method="POST">
+									<!-- {% csrf_token %} -->
+									<select name="stype" class="input-select">
+										<option value="0">Book Title</option>
+									</select>
+									<input type="text" class="input" placeholder="Search here" name="searchbox">
+									<button name="sbutton" class="search-btn">Search</button>
+								</form>
+							</div>
+						</div>
+						<!-- /SEARCH BAR -->
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<!-- Wishlist -->
+								<div>
+									<a href="/wishlist">
+										<i class="fa fa-heart-o"></i>
+										<span>Your Wishlist</span>
+										<div class="qty">2</div>
+									</a> 
+								 </div>
+								<!-- /Wishlist -->
+
+								<!-- Cart -->
+								<div class="dropdown">
+									
+									<a class="dropdown-toggle" href="/wishlist">
+										<i class="fa fa-star"></i>
+										<span>Show Rated books</span>
+	
+									</a>
+							
+								
+								</div>
+								<!-- /Cart -->
+
+								<!-- Menu Toogle -->
+							
+								<!-- /Menu Toogle -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li class="active"><a href="#">Trang chủ</a></li>
+						<li><a href="#">Sản phẩm mới </a></li>
+						<li><a href="#">Danh mục</a></li>
+					</ul>
+
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+
+		<!-- SECTION -->
+		</div>
+		<!-- /SECTION -->
+		
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+						
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h3 class="title">Recommended Book</h3>
+							
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12" id="product--list">
+						<div class="product__item">
+							<div class="product__img">
+								<img src="../static/img/book-test.png" alt="" />
+							</div>
+							<div class="product__content">
+								<div>Product Name</div>
+								<div>Product Price</div>
+							</div>
+						</div>
+						<div class="product__item">
+
+						</div>
+						<div class="product__item">
+
+						</div>
+						<div class="product__item">
+
+						</div>
+						<div class="product__item">
+
+						</div>
+						<div class="product__item">
+
+						</div>
+						<div class="product__item">
+
+						</div>
+						<div class="product__item">
+
+						</div>
+					</div>
+					<!-- Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+		<script>
+		function myfun(){	
+$(document).ready(function(){
+  $("#heart").click(function(){
+    if($("#heart").hasClass("liked")){
+      $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+      $("#heart").removeClass("liked");
+    }else{
+      $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+      $("#heart").addClass("liked");
+    }
+  });
+});
+		}
+		</script>
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h3 class="title">Popular Book</h3>
+							
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab2" class="tab-pane fade in active">
+									<div class="products-slick" data-nav="#slick-nav-2">
+
+										<!-- product -->
+										<!-- {% for book in auth2 %} -->
+										<div class="product">
+											<div class="product-img">
+												<img src="../static/img/book-test.png" alt="">
+											</div>
+											<div class="product-body">
+												<p class="product-category">{{book.1}}</p>
+												<h3 class="product-name"><a href="#">{{book.10}}</a></h3>
+												
+											</div>
+											<div class="add-to-cart">
+												<form method="POST">
+													<!-- {% csrf_token %} -->
+													<button class="add-to-cart-btn" type="hidden" name="viewbook" value="{{book.0}}"><i class="fa fa-eye"></i>View Book Details</button>
+												</form>
+											</div>
+										</div>
+                                        <div class="product">
+											<div class="product-img">
+												<img src="../static/img/book-test.png" alt="">
+											</div>
+											<div class="product-body">
+												<p class="product-category">{{book.1}}</p>
+												<h3 class="product-name"><a href="#">{{book.10}}</a></h3>
+												
+											</div>
+											<div class="add-to-cart">
+												<form method="POST">
+													<!-- {% csrf_token %} -->
+													<button class="add-to-cart-btn" type="hidden" name="viewbook" value="{{book.0}}"><i class="fa fa-eye"></i>View Book Details</button>
+												</form>
+											</div>
+										</div>
+                                        <div class="product">
+											<div class="product-img">
+												<img src="../static/img/book-test.png" alt="">
+											</div>
+											<div class="product-body">
+												<p class="product-category">{{book.1}}</p>
+												<h3 class="product-name"><a href="#">{{book.10}}</a></h3>
+												
+											</div>
+											<div class="add-to-cart">
+												<form method="POST">
+													<!-- {% csrf_token %} -->
+													<button class="add-to-cart-btn" type="hidden" name="viewbook" value="{{book.0}}"><i class="fa fa-eye"></i>View Book Details</button>
+												</form>
+											</div>
+										</div>
+                                        <div class="product">
+											<div class="product-img">
+												<img src="../static/img/book-test.png" alt="">
+											</div>
+											<div class="product-body">
+												<p class="product-category">{{book.1}}</p>
+												<h3 class="product-name"><a href="#">{{book.10}}</a></h3>
+												
+											</div>
+											<div class="add-to-cart">
+												<form method="POST">
+													<!-- {% csrf_token %} -->
+													<button class="add-to-cart-btn" type="hidden" name="viewbook" value="{{book.0}}"><i class="fa fa-eye"></i>View Book Details</button>
+												</form>
+											</div>
+										</div>
+										<!-- /product -->
+										<!-- {% endfor %} -->
+									</div>
+									<div id="slick-nav-2" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+					</div>
+					<!-- /Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+            <!-- {% endblock %} -->
+            <footer id="footer">
+                <!-- top footer -->
+                <div class="section">
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            
+                                <div class="footer">
+                                    <h3 class="footer-title">About Us</h3>
+                                    <p>This site is for book Recommendation. On the basis of user's history it recommends the book. Users can also search and rate the book. We made this site as our college term project. It will be upgraded in future. </p>
+                                    <ul class="footer-links">
+                                        <li><a href="#"><i class="fa fa-map-marker"></i>175 Tay Son</a></li>
+                                        <li><a href="#"><i class="fa fa-phone"></i>0988888888</a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i>dangphong1520@gmail.com</a></li>
+                                    </ul>
+                                </div>
+                            
+    
+                           <!--  <div class="col-md-3 col-xs-6">
+                                <div class="footer">
+                                    <h3 class="footer-title">Categories</h3>
+                                    <ul class="footer-links">
+                                        <li><a href="#"></a></li>
+                                        <li><a href="#">Author</a></li>
+                                        <li><a href="#">Genre</a></li>
+                                        <li><a href="#">Book Title</a></li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="clearfix visible-xs"></div>
+    
+                            <div class="col-md-3 col-xs-6">
+                                <div class="footer">
+                                    <h3 class="footer-title">Information</h3>
+                                    <ul class="footer-links">
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Contact Us</a></li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-3 col-xs-6">
+                                <div class="footer">
+                                    <h3 class="footer-title">Service</h3>
+                                    <ul class="footer-links">
+                                        <li><a href="#">My Likes</a></li>
+                                        
+                                        <li><a href="#">Help</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- /row -->
+                    </div>
+                    <!-- /container -->
+                </div>
+                <!-- /top footer -->
+    
+                <!-- bottom footer -->
+                <div id="bottom-footer" class="section">
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                
+                                <span class="copyright">
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | 
+                                    
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </span>
+                            </div>
+                        </div>
+                            <!-- /row -->
+                    </div>
+                    <!-- /container -->
+                </div>
+                <!-- /bottom footer -->
+            </footer>
+            <!-- /FOOTER -->
+    
+            <!-- jQuery Plugins -->
+            <script src="../static/js/jquery.min.js"></script>
+            <script src="../static/js/bootstrap.min.js"></script>
+            <script src="../static/js/slick.min.js"></script>
+            <script src="../static/js/nouislider.min.js"></script>
+            <script src="../static/js/jquery.zoom.min.js"></script>
+            <script src="../static/js/main.js"></script>
+			<script>
+				product = $('#product-item')
+				$( document ).ready(function() {
+					var settings = {
+					"url": "http://192.168.1.83:8000/api/v1/book/",
+					"method": "GET",
+					"timeout": 0,
+					};
+
+					$.ajax(settings).done(function (response) {
+					console.log(response.data);
+					let products = response.data;
+					$.each(products, function(key, value) {
+						product.append(value.id + ': ' + value.book_authors);
+						product.append('<img src="'+value.image_url +'"/>');
+					});
+					});
+				});
+			</script>
+        </body>
+    </html>
+    
